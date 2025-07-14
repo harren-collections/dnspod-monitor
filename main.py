@@ -15,6 +15,7 @@ def load_config():
     """
     加载并验证 config.json 配置文件。
     """
+    global proxies
     config_path = 'config.json'
     if not os.path.exists(config_path):
         print(f"错误: 配置文件 {config_path} 不存在，请参考仓库中的配置文件模版创建配置。")
@@ -34,6 +35,15 @@ def load_config():
         # 如果未设置检查间隔，则提供一个默认值
         if 'check_interval_seconds' not in config:
             config['check_interval_seconds'] = 30
+
+        # 配置代理
+        if "proxy" in config and config["proxy"]:
+            proxy = config["proxy"]
+            proxies = {
+                "http": f"socks5h://{proxy['account']}:{proxy['password']}@{proxy['host']}:{proxy['port']}",
+                "https": f"socks5h://{proxy['account']}:{proxy['password']}@{proxy['host']}:{proxy['port']}"
+            }
+            print(f"已启用 Socks 代理: {proxy['host']}:{proxy['port']}")
             
         return config
     except json.JSONDecodeError:
