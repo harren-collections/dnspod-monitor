@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 previous_records_state = {}
+dnspod_ua = "DNSPod Record Monitor/1.0"
 
 def load_config():
     """
@@ -67,7 +68,7 @@ def get_dnspod_records(domain, token):
     url = "https://dnsapi.cn/Record.List"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent": "DNSPod Record Monitor/1.0"
+        "User-Agent": dnspod_ua
     }
     data = {
         "login_token": token,
