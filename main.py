@@ -16,7 +16,7 @@ def load_config():
     """
     config_path = 'config.json'
     if not os.path.exists(config_path):
-        print(f"错误: 配置文件 {config_path} 不存在。请参考仓库配置文件模版。")
+        print(f"错误: 配置文件 {config_path} 不存在，请参考仓库中的配置文件模版创建配置。")
         sys.exit(1)
     
     try:
@@ -27,7 +27,7 @@ def load_config():
         required_keys = ['domain', 'token', 'names', 'telegram_bot_token', 'telegram_chat_id']
         for key in required_keys:
             if key not in config:
-                print(f"错误: 配置文件中缺少必要的键: '{key}'")
+                print(f"错误: 配置文件中缺少必要的键: '{key}'，请参考仓库中的配置文件模版修改配置。")
                 sys.exit(1)
         
         # 如果未设置检查间隔，则提供一个默认值
