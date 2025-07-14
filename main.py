@@ -32,7 +32,7 @@ def load_config():
         
         # 如果未设置检查间隔，则提供一个默认值
         if 'check_interval_seconds' not in config:
-            config['check_interval_seconds'] = 10
+            config['check_interval_seconds'] = 30
             
         return config
     except json.JSONDecodeError:

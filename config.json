@@ -8,5 +8,5 @@
   ],
   "telegram_bot_token": "8000000000:AAAAAAAAAAAAAAAAAAAAAA",
   "telegram_chat_id": "-1000000000000",
-  "check_interval_seconds": 10
+  "check_interval_seconds": 30
 }
