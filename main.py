@@ -7,8 +7,9 @@ import sys
 from datetime import datetime
 
 
-previous_records_state = {}
 dnspod_ua = "DNSPod Record Monitor/1.0"
+previous_records_state = {}
+proxies = {}
 
 def load_config():
     """
@@ -53,7 +54,7 @@ def send_telegram_message(bot_token, chat_id, message):
         'parse_mode': 'Markdown' # 使用 Markdown 格式化消息
     }
     try:
-        response = requests.post(url, json=payload, timeout=5)
+        response = requests.post(url, json=payload, proxies=proxies, timeout=5)
         if response.status_code == 200 and response.json().get("ok"):
             print("Telegram 通知发送成功。")
         else:
