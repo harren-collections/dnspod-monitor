@@ -15,7 +15,7 @@ def load_config():
     """
     config_path = 'config.json'
     if not os.path.exists(config_path):
-        print(f"错误: 配置文件 {config_path} 不存在。请根据模板创建。")
+        print(f"错误: 配置文件 {config_path} 不存在。请参考仓库配置文件模版。")
         sys.exit(1)
     
     try:
