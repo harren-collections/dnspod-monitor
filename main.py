@@ -67,7 +67,7 @@ def get_dnspod_records(domain, token):
     url = "https://dnsapi.cn/Record.List"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent": "DNSPod Record Monitor/1.0 (your_email@example.com)" # 推荐使用规范的 User-Agent
+        "User-Agent": "DNSPod Record Monitor/1.0"
     }
     data = {
         "login_token": token,
