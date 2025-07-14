@@ -52,7 +52,7 @@ def send_telegram_message(bot_token, chat_id, message):
         'parse_mode': 'Markdown' # 使用 Markdown 格式化消息
     }
     try:
-        response = requests.post(url, json=payload, timeout=10)
+        response = requests.post(url, json=payload, timeout=5)
         if response.status_code == 200 and response.json().get("ok"):
             print("Telegram 通知发送成功。")
         else:
@@ -76,7 +76,7 @@ def get_dnspod_records(domain, token):
     }
     
     try:
-        response = requests.post(url, headers=headers, data=data, timeout=10)
+        response = requests.post(url, headers=headers, data=data, timeout=5)
         response.raise_for_status()  # 如果 HTTP 状态码不是 2xx，则抛出异常
         
         result = response.json()
